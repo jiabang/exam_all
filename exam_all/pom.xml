@@ -1,0 +1,115 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<!-- 指明POM使用的对象模型的版本,此值很少改动 -->
+	<modelVersion>4.0.0</modelVersion>
+	<!-- groupId 项目目录名 -->
+	<groupId>com</groupId>
+	<!-- artifactId 项目名 -->
+	<artifactId>exam_all</artifactId>
+	<!-- 项目打包格式 -->
+	<packaging>war</packaging>
+	<!-- 项目产品版本 -->
+	<version>0.0.1-SNAPSHOT</version>
+	<!-- 项目显示名称 -->
+	<name>exam_all Maven Webapp</name>
+	<!-- 项目站点 -->
+	<url>http://maven.apache.org</url>
+
+	<!-- 属性设置 -->
+	<!-- 编码设置 -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<!-- 依赖关系 -->
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!--mysql-jdbc -->
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.38</version>
+		</dependency>
+
+		<!-- jstl -->
+		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+
+		<!-- tomcat catalina jdbc -->
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-catalina -->
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-catalina</artifactId>
+			<version>8.0.36</version>
+		</dependency>
+
+
+
+	</dependencies>
+
+
+
+	<!-- build -->
+	<build>
+		<finalName>exam_all</finalName>
+
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			
+		<!-- jetty插件 -->  
+        <plugin>  
+            <groupId>org.mortbay.jetty</groupId>  
+            <artifactId>maven-jetty-plugin</artifactId>  
+            <version>6.1.5</version>  
+            <configuration>  
+                <webAppSourceDirectory>src/main/webapp</webAppSourceDirectory>  
+                <scanIntervalSeconds>3</scanIntervalSeconds>  
+                <contextPath>/</contextPath>  
+                <connectors>  
+                    <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">  
+                        <port>8080</port>  
+                    </connector>  
+                </connectors>  
+            </configuration>  
+        </plugin>  
+        
+        
+ <!--        <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <port>8080</port>
+                    <path>/mgr</path>
+                    <uriEncoding>UTF-8</uriEncoding>
+                    <server>tomcat7</server>
+                </configuration>
+            </plugin>  -->
+
+
+
+		</plugins>
+
+		
+	</build>
+</project>
